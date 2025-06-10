@@ -27,25 +27,33 @@
 // }
 // fixMe()
 
-const fetchData=async (num)=>{
-  return new Promise((resolve)=>{
-    setTimeout(()=>resolve(num*10),1000);
-  })
-}
-(async()=>{
-  const arr= [1,2,3]
-  const results= arr.map(async (num)=>{
-    const result= await fetchData(num)
-    return  result
-  })
-  console.log(results);
-})()
+// const fetchData=async (num)=>{
+//   return new Promise((resolve)=>{
+//     setTimeout(()=>resolve(num*10),1000);
+//   })
+// }
+// (async()=>{
+//   const arr= [1,2,3]
+//   const results= arr.map(async (num)=>{
+//     const result= await fetchData(num)
+//     return  result
+//   })
+//   console.log(results);
+// })()
 
-async function getUserData(url) {
-  const res=await fetch(url)
-  const data = await res.json()
-  return data
+// async function getUserData(url) {
+//   const res=await fetch(url)
+//   const data = await res.json()
+//   return data
+// }
+// getUserData().then(data=>{
+//   console.log("user",data)
+// })
+const url = 'https://api.github.com/users/varma-cephas'
+async function show(){
+ const data = await fetch(url)
+ console.log(data.ok,data.statusText,data.status);
+ const val= await data.json();
+    console.log(val);
 }
-getUserData().then(data=>{
-  console.log("user",data)
-})
+show();
